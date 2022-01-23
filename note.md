@@ -67,3 +67,31 @@ int size = recv(sockfd, buf, 1024, 0);
 - 不会丢失数据或者信息：应用没有读完
 - 低延迟处理：每次读数据只要一次系统调用；公平，不会因为某个连接数据量过大影响其他处理连接消息
 - 跨平台处理
+
+
+
+### tcp_server编译启动
+
+```shell
+g++ -o server muduo_server.cpp -lmuduo_net -lmuduo_base -lpthread
+
+./server
+```
+
+### vscode配置
+
+- F1搜索C/C++ Edit configurations
+- 可以在includePath加搜索路径 
+- 增加新的语法标准 "cppStandard"："c++17"
+- gcc -I头文件搜索路径 -L库文件搜索路径 -l库名称 /usr/include  /usr/local/inlclude*
+
+
+
+- Ctrl+Shift+B 点齿轮可以添加依赖库，就不用命令行g++运行了
+
+
+
+# 一些C++语法点
+
+- 类外定义不加static、explict
+- 定义、声明种默认参数只能出现一次
