@@ -6,3 +6,28 @@
 - [boost库安装](https://blog.csdn.net/QIANGWEIYUAN/article/details/88792874)
 - [muduo库安装](https://blog.csdn.net/QIANGWEIYUAN/article/details/89023980)
 
+
+
+
+
+- 项目逻辑
+
+​     — — — — — — — — — — — — — 
+
+|         noncopyable ：不可拷贝的基类    |
+
+|         Logger ：日志                                  |
+
+|         TimeStamp                                      |
+
+|         InetAddress                                     |
+
+​    — — — — — — — — — — — — — 
+
+一个线程有一个eventloop，一个eventloop有一个poller（poll、Epoll），一个poller可以监听多个channel（fd和事件的绑定），每个channel属于一个evenloop
+
+​     — — — — — 
+
+| channel -> poller ->  EPollPoller ->    |
+
+​    — — — — — 

@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/princeh23/Desktop/mymuduo/Channel.cc
+Channel.h
+/home/princeh23/Desktop/mymuduo/Channel.h
+EventLoop.h
+/home/princeh23/Desktop/mymuduo/EventLoop.h
+Logger.h
+/home/princeh23/Desktop/mymuduo/Logger.h
+sys/epoll.h
+-
+
+/home/princeh23/Desktop/mymuduo/Channel.h
+noncopyable.h
+/home/princeh23/Desktop/mymuduo/noncopyable.h
+Timestamp.h
+/home/princeh23/Desktop/mymuduo/Timestamp.h
+functional
+-
+memory
+-
+
+/home/princeh23/Desktop/mymuduo/EventLoop.h
+
+/home/princeh23/Desktop/mymuduo/Logger.h
+string
+-
+noncopyable.h
+/home/princeh23/Desktop/mymuduo/noncopyable.h
+
+/home/princeh23/Desktop/mymuduo/Timestamp.h
+iostream
+-
+string
+-
+
+/home/princeh23/Desktop/mymuduo/noncopyable.h
+

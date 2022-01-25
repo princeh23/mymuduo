@@ -55,7 +55,8 @@ int size = recv(sockfd, buf, 1024, 0);
 - epoll：红黑树（保存所有套接字），就绪链表（有事件发生的文件描述符）
 - epoll_create()建立一个epoll对象
 - epoll_ctl()向epoll对象种添加100w个套接字
-- epoll_wait()手机发生的事件的fd资源
+- epoll_wait()在一段超时时间内等待一个fd上的时间，返回就绪的fd的个数
+- fd：文件描述符
 
 ### LT、ET模式
 
@@ -95,3 +96,5 @@ g++ -o server muduo_server.cpp -lmuduo_net -lmuduo_base -lpthread
 
 - 类外定义不加static、explict
 - 定义、声明种默认参数只能出现一次
+- 智能指针
+- 需要派生类中的成员时候，不在基类中实现（eg：Poller中static Poller* newDefaultPoller(EventLoop *loop);）
