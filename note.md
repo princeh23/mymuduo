@@ -98,3 +98,5 @@ g++ -o server muduo_server.cpp -lmuduo_net -lmuduo_base -lpthread
 - 定义、声明种默认参数只能出现一次
 - 智能指针
 - 需要派生类中的成员时候，不在基类中实现（eg：Poller中static Poller* newDefaultPoller(EventLoop *loop);）
+- 默认值只能给一次，声明不能给
+- (0) 不用 = 0；如果excplit？？？
