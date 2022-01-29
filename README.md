@@ -63,9 +63,13 @@
 
 
 
-- 上面相当于Reactor和Demulplax
+- loop相当于Reactor，poller相当于Demultiplex
 
 
 
-- acceptor fd来了打包成channel，唤醒subloop中
+- Acceptor fd来了打包成channel，唤醒subloop中
+
+
+
+- TcpServer
 - 
