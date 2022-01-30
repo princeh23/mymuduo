@@ -6,7 +6,7 @@ EventLoopThread::EventLoopThread(const ThreadInitCallback &cb,
         const std::string &name)
         : loop_(nullptr)
         , exiting_(false)
-        , thread_(std::bind(&EventLoopThread::threadFunc, this), name)//绑定回调函数
+        , thread_(std::bind(&EventLoopThread::threadFunc, this), name)
         , mutex_()
         , cond_()
         , callback_(cb)
@@ -14,7 +14,7 @@ EventLoopThread::EventLoopThread(const ThreadInitCallback &cb,
 
 }
 
-EventLoopThread::~EventLoopThread()//析构函数
+EventLoopThread::~EventLoopThread()
 {
     exiting_ = true;
     if (loop_ != nullptr)
@@ -24,39 +24,39 @@ EventLoopThread::~EventLoopThread()//析构函数
     }
 }
 
-EventLoop* EventLoopThread::startLoop()//开启循环
+EventLoop* EventLoopThread::startLoop()
 {
-    thread_.start();//启动底层的新线程
-	//启动后执行的是EventLoopThread::threadFunc
+    thread_.start(); // 启动底层的新线程
+
     EventLoop *loop = nullptr;
     {
         std::unique_lock<std::mutex> lock(mutex_);
         while ( loop_ == nullptr )
         {
-            cond_.wait(lock);//挂起，等待
+            cond_.wait(lock);
         }
         loop = loop_;
     }
     return loop;
 }
 
-//下面这个方法，start（）后的执行的，也就是在单独的新线程里面运行的
+// 下面这个方法，实在单独的新线程里面运行的
 void EventLoopThread::threadFunc()
 {
-    EventLoop loop;//创建一个独立的eventloop，和上面的线程是一一对应的，one loop per thread
+    EventLoop loop; // 创建一个独立的eventloop，和上面的线程是一一对应的，one loop per thread
 
-    if (callback_)//如果有回调
+    if (callback_)
     {
-        callback_(&loop);//绑定loop做一些事情
+        callback_(&loop);
     }
 
     {
         std::unique_lock<std::mutex> lock(mutex_);
-        loop_ = &loop;//就是运行在这个线程的loop对象
-        cond_.notify_one();//唤醒1个线程
+        loop_ = &loop;
+        cond_.notify_one();
     }
 
-    loop.loop();//相当于EventLoop loop  => Poller.poll
+    loop.loop(); // EventLoop loop  => Poller.poll
     std::unique_lock<std::mutex> lock(mutex_);
     loop_ = nullptr;
 }

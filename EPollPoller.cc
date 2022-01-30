@@ -29,7 +29,6 @@ EPollPoller::~EPollPoller()
     ::close(epollfd_);
 }
 
-//epoll_wait
 Timestamp EPollPoller::poll(int timeoutMs, ChannelList *activeChannels)
 {
     // 实际上应该用LOG_DEBUG输出日志更为合理

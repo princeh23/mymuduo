@@ -62,7 +62,6 @@ private:
     std::unique_ptr<Channel> wakeupChannel_;
 
     ChannelList activeChannels_;
-    //实现循环二 20分钟
 
     std::atomic_bool callingPendingFunctors_; // 标识当前loop是否有需要执行的回调操作
     std::vector<Functor> pendingFunctors_; // 存储loop需要执行的所有的回调操作

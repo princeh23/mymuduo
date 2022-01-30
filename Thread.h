@@ -12,13 +12,13 @@
 class Thread : noncopyable
 {
 public:
-    using ThreadFunc = std::function<void()>;//线程函数的函数类型  绑定器和函数对象，就可以传参 
+    using ThreadFunc = std::function<void()>;
 
-    explicit Thread(ThreadFunc, const std::string &name = std::string());//构造函数 
-    ~Thread();//析构函数 
+    explicit Thread(ThreadFunc, const std::string &name = std::string());
+    ~Thread();
 
-    void start();//启动当前线程 
-    void join();//当前线程等待其他线程完了再运行下去 
+    void start();
+    void join();
 
     bool started() const { return started_; }
     pid_t tid() const { return tid_; }
@@ -28,11 +28,11 @@ public:
 private:
     void setDefaultName();
 
-    bool started_;//启动当前线程 
-    bool joined_;//当前线程等待其他线程完了再运行下去 
-    std::shared_ptr<std::thread> thread_;//自己来掌控线程对象产生的时机 
+    bool started_;
+    bool joined_;
+    std::shared_ptr<std::thread> thread_;
     pid_t tid_;
-    ThreadFunc func_;//存储线程函数 
-    std::string name_;//调试的时候打印 
-    static std::atomic_int numCreated_;//对线程数量计数 
+    ThreadFunc func_;
+    std::string name_;
+    static std::atomic_int numCreated_;
 };

@@ -6,6 +6,8 @@
 - 实现`TcpServer`、`TcpConnection`、`Poller`、`Chanel`等重要部分
 - 重写muduo核心组件，去依赖boost，用C++11重构
 - 测试代码是否成功
+- ![并发模型](https://github.com/linyacool/WebServer/raw/master/datum/model.png)
+- 
 - ![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/6/20/172d177f31e4e23d~tplv-t2oaga2asx-watermark.awebp)
 
 # 环境配置
@@ -82,4 +84,19 @@
 
 - TcpConnection
 - 
+
+
+
+
+
+# mymuduo库的安装
+
+- chmod +x autobuild.sh
+- sudo ./autobuild.sh
+
+# 测试
+
+- example文件下
+- sudo make
+- ./testserver
 

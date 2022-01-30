@@ -1,5 +1,5 @@
 #include "Poller.h"
-//#include "EPollPoller.h"
+#include "EPollPoller.h"
 
 #include <stdlib.h>
 
@@ -11,7 +11,6 @@ Poller* Poller::newDefaultPoller(EventLoop *loop)
     }
     else
     {
-        return nullptr;
-        //return new EPollPoller(loop); // 生成epoll的实例
+        return new EPollPoller(loop); // 生成epoll的实例
     }
 }

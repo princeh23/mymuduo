@@ -4,7 +4,7 @@
 
 class InetAddress;
 
-//封装socket fd
+// 封装socket fd
 class Socket : noncopyable
 {
 public:
@@ -21,7 +21,7 @@ public:
 
     void shutdownWrite();
 
-    void setTcpNoDelay(bool on);//直接发送，数据不进行TCP缓存 
+    void setTcpNoDelay(bool on);
     void setReuseAddr(bool on);
     void setReusePort(bool on);
     void setKeepAlive(bool on);
