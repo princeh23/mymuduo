@@ -26,6 +26,7 @@
 
 # 项目架构
 
+- ![mymuduo框架](https://github.com/princeh23/mymuduo/blob/main/picture/mymuduo%E6%A1%86%E6%9E%B6.png)
 - 
 - MainReactor = baseloop_；SubReactor = subpool（如果没有定义subloop格式，IO和工作线程都是baseloop\_）
 - ![并发模型](https://github.com/linyacool/WebServer/raw/master/datum/model.png)
