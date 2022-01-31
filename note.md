@@ -100,3 +100,33 @@ g++ -o server muduo_server.cpp -lmuduo_net -lmuduo_base -lpthread
 - 需要派生类中的成员时候，不在基类中实现（eg：Poller中static Poller* newDefaultPoller(EventLoop *loop);）
 - 默认值只能给一次，声明不能给
 - (0) 不用 = 0；如果excplit？？？
+
+# 项目梳理
+
+- fd来了之后打包成channel 两种channel（listenfd connfd）
+- 
+- poller - Demultiplex 
+- poller中有哈希表存fd和channel的对应
+- 
+- EventLoop - Reactor，channel和poller通信
+- EventLoop中有所有的channel，一个poller
+- 
+- Thread、EventLoopThread
+- EventLoopThreadPool
+- getnextloop()轮训算法获取下一个subloop，没设置个数就返回baseloop()
+- 一个thread一个loop = one loop per thread
+- 
+- Acceptor：主要封装了listenfd相关的操作， socket\bind\listen，打包成channel给baseloop
+- 
+- Buffer：no_blocking，应用写数据->缓冲区->TCP发送缓冲区->send
+- 
+- TcpConnection：一个连接成功的客户端对应一个TcpConnection
+- 
+- TcpServer：
+- TcpServer对象构造，listendf打包成acceptChannel，唤醒3个子线程
+- 有新连接到来，newconnection()，轮询算法选择subLoop，
+
+# 项目逻辑
+
+- ![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/6/20/172d177f31e4e23d~tplv-t2oaga2asx-watermark.awebp)
+
