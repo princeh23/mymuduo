@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net" modified="2022-01-31T10:25:07.799Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36" etag="Q_K08sGEczXdOrhpWad-" version="16.5.2" type="github">
+  <diagram id="Dj5IQC7-7TMW4ebiaRUy" name="Page-1">
+    <mxGraphModel dx="1053" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-1" value="EventLoop" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-2" value="Poller/Epollpoller（epoll）" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="30" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-3" value="Channel&lt;br&gt;(一个fd对应一个channel)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="30" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-6" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="419.63" y="440" as="sourcePoint" />
+            <mxPoint x="419.63" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-7" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="99.63" y="440" as="sourcePoint" />
+            <mxPoint x="99.63" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-8" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="259.63" y="440" as="sourcePoint" />
+            <mxPoint x="259.63" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-9" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="120" as="sourcePoint" />
+            <mxPoint x="260" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-10" value="poll()" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="100" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-15" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="261" y="160.5" as="sourcePoint" />
+            <mxPoint x="100" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-16" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="199.63" as="sourcePoint" />
+            <mxPoint x="420" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-17" value="Acceptor&lt;br&gt;(socket/bind/&lt;br&gt;listen/accept)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="30" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-18" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="240" as="sourcePoint" />
+            <mxPoint x="580" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-19" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580.0000000000001" y="440" as="sourcePoint" />
+            <mxPoint x="580.0000000000001" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-20" value="TcpServer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="30" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-21" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="740.0000000000001" y="440" as="sourcePoint" />
+            <mxPoint x="740.0000000000001" y="80" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-22" value="监听事件&lt;br&gt;的发生" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="260" y="120" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-24" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="100" y="400" as="sourcePoint" />
+            <mxPoint x="260" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-25" value="poll()" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="160" y="380" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-28" value="不断轮询" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="150" y="400" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-29" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="280" as="sourcePoint" />
+            <mxPoint x="740" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-30" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="740" y="320.63" as="sourcePoint" />
+            <mxPoint x="820" y="320.63" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-31" value="TcpConnection" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="820" y="306" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-33" value="添加新连接" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="740" y="320" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-35" value="Timestamp&lt;br&gt;InetAddress&lt;br&gt;Logger&lt;br&gt;noncopyable" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry y="480" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-36" value="handleEvent()" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="270" y="180" width="90" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-38" value="Socket：进行了socket/bind/listen/accept的封装&lt;br&gt;Buffer&lt;br&gt;Callbacks&lt;br&gt;CurrentThread&lt;br&gt;EventLoopThread&lt;br&gt;EventLoopThreadPool" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="480" width="250" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
