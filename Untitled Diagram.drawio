@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-01-31T10:25:07.799Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36" etag="Q_K08sGEczXdOrhpWad-" version="16.5.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-01-31T10:45:02.591Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36" etag="oAJTecLQ_EQQTMlSjJ_0" version="16.5.2" type="github">
   <diagram id="Dj5IQC7-7TMW4ebiaRUy" name="Page-1">
-    <mxGraphModel dx="1053" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1053" dy="517" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -109,14 +109,17 @@
         <mxCell id="1-TE-ElDCBIfOnYAz5QD-33" value="添加新连接" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="740" y="320" width="80" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="1-TE-ElDCBIfOnYAz5QD-35" value="Timestamp&lt;br&gt;InetAddress&lt;br&gt;Logger&lt;br&gt;noncopyable" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry y="480" width="80" height="60" as="geometry" />
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-35" value="Timestamp&lt;br&gt;InetAddress&lt;br&gt;Logger：日志类&lt;br&gt;noncopyable：不可拷贝的基类" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="670" y="470" width="170" height="80" as="geometry" />
         </mxCell>
         <mxCell id="1-TE-ElDCBIfOnYAz5QD-36" value="handleEvent()" style="text;html=1;resizable=0;autosize=1;align=center;verticalAlign=middle;points=[];fillColor=none;strokeColor=none;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="270" y="180" width="90" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="1-TE-ElDCBIfOnYAz5QD-38" value="Socket：进行了socket/bind/listen/accept的封装&lt;br&gt;Buffer&lt;br&gt;Callbacks&lt;br&gt;CurrentThread&lt;br&gt;EventLoopThread&lt;br&gt;EventLoopThreadPool" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="160" y="480" width="250" height="120" as="geometry" />
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-38" value="Socket：进行了socket/bind/listen/accept的封装&lt;br&gt;Buffer&lt;br&gt;Callbacks&lt;br&gt;CurrentThread" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="630" y="560" width="250" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="1-TE-ElDCBIfOnYAz5QD-40" value="一个线程有一个EventLoop，一个EventLoop有一个Poller，一个Poller监听多个Channel&lt;br&gt;Channel和Poller是独立的，依赖EventLoop通信&lt;br&gt;&lt;div style=&quot;text-align: left&quot;&gt;Thread是底层的线程&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;EventloopThread：绑定一个EventLoop和Thread&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;text-align: left&quot;&gt;EventloopThreadPool：线程池，管理EventLoop&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="520" width="450" height="90" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
