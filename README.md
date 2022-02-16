@@ -25,18 +25,37 @@
 - ./testserver
 
 # 项目架构
+![mymuduo框架](https://github.com/princeh23/mymuduo/blob/main/picture/1.png)
+![并发模型](https://github.com/linyacool/WebServer/raw/master/datum/model.png)
 
-- 
-- MainReactor = baseloop_；SubReactor = subpool（如果没有定义subloop格式，IO和工作线程都是baseloop\_）
-- ![并发模型](https://github.com/linyacool/WebServer/raw/master/datum/model.png)
-
+# 项目梳理/书写步骤
+1. 第一模块：基本类
+- noncopyable：不可拷贝的基类
+- Logger：日志类
+- Timestamp：时间类
+- InetAddress：封装socket地址
+2. 第二模块：Channel、Poller、EventLoop
+- Channel：打包fd和感兴趣的events
+- Poller：epoll、poll的基类
+- EPollPoller：封装epoll的操作
+- CurrentThread：获取当前线程tid，每个channel要在自己的eventloop线程上进行处理
+- Eventloop：事件轮询，连接poller和channel
+- Thread：底层线程
+- EventLoopThread：one loop per thread，绑定一个loop和一个thread
+- EventLoopThreadPoll：线程池，有mainloop和subloop
+3. 第三模块：Acceptor、TcpServer、TcpConnection
+- Socket：封装socker、bind、listen、accept
+- Acceptor：处理accept，监听新用户的连接，打包成channel，分发给subloop
+- TcpServer：集大成者，见图理解
+- Buffer：缓冲区
+- TcpConnection：建立和客户端的新连接
 # 压测
 
 - webbench1.5
 
 # TODO
-
-- 
+- 定时器
+- poll
 
 
 
