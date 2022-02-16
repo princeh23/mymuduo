@@ -62,7 +62,7 @@ TcpConnection::~TcpConnection()
         name_.c_str(), channel_->fd(), (int)state_);
 }
 
-void TcpConnection::send(const std::string &buf)
+/*void TcpConnection::send(const std::string &buf)
 {
     if (state_ == kConnected)
     {
@@ -79,6 +79,24 @@ void TcpConnection::send(const std::string &buf)
                 buf.size()
             ));
         }
+    }
+}*/
+/**
+ * 主要是else里面   如果不在当前线程中执行的这个函数，需要对buf数据进行一个拷贝
+ * 因为使用runinloop注册会造成send操作有一定的延迟，因为它不是立马执行的，而是注册给这个线程让它待会来执行的。
+ * 在延迟处理的这段时间send过来的数据buf可能会被销毁
+ * 因为这个函数的buf参数是传的引用进来的，不能保证资源的是否销毁。
+ */
+void TcpConnection::send(const std::string& buf)           
+{
+    if (state_ == kConnected) {
+        if (loop_->isInLoopThread()) {
+            /*在执行这个函数的时候一般都是在执行MessageCallback，所以一般是在自己的线程中*/
+             sendInLoop(buf.c_str(), buf.size());
+        } else {
+            void(TcpConnection::*fp)(const std::string& s) = &TcpConnection::sendInLoop;
+            loop_->runInLoop(std::bind(fp, this, std::string(buf)) );
+        }    
     }
 }
 

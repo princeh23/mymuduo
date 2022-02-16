@@ -130,3 +130,5 @@ g++ -o server muduo_server.cpp -lmuduo_net -lmuduo_base -lpthread
 
 - ![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/6/20/172d177f31e4e23d~tplv-t2oaga2asx-watermark.awebp)
 
+- channel：封装fd和感兴趣的事件event
+- poller：
