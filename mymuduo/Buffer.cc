@@ -22,6 +22,9 @@ ssize_t Buffer::readFd(int fd, int* saveErrno)
     vec[1].iov_len = sizeof extrabuf;
     
     const int iovcnt = (writable < sizeof extrabuf) ? 2 : 1;
+    //将数据从文件描述符读到分散的内存块中，即分散读
+    //将TCP缓冲区中的数据先拷贝到buffer中
+    // readv()详解：https://blog.csdn.net/LINZEYU666/article/details/120597907
     const ssize_t n = ::readv(fd, vec, iovcnt);
     if (n < 0)
     {
@@ -31,7 +34,7 @@ ssize_t Buffer::readFd(int fd, int* saveErrno)
     {
         writerIndex_ += n;
     }
-    else // extrabuf里面也写入了数据 
+    else // buffer写不下，往extrabuf写数据 
     {
         writerIndex_ = buffer_.size();
         append(extrabuf, n - writable);  // writerIndex_开始写 n - writable大小的数据

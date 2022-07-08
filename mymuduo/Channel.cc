@@ -46,6 +46,7 @@ void Channel::handleEvent(Timestamp receiveTime)
 {
     if (tied_)
     {
+        //处理完handleEventWithGuard之后这个智能指针就会被释放，tcpconnection中的
         std::shared_ptr<void> guard = tie_.lock();
         if (guard)
         {

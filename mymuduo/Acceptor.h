@@ -21,13 +21,13 @@ public:
     }
 
     bool listenning() const { return listenning_; }
-    void listen();
+    void listen(); //main EventLoop事件监听器去监听acceptSocket_
 private:
     void handleRead();
     
     EventLoop *loop_; // Acceptor用的就是用户定义的那个baseLoop，也称作mainLoop
-    Socket acceptSocket_;
-    Channel acceptChannel_;
+    Socket acceptSocket_; //服务器监听套接字的文件描述符
+    Channel acceptChannel_; //acceptSocket_及其感兴趣的事件进行封装
     NewConnectionCallback newConnectionCallback_;
     bool listenning_;
 };

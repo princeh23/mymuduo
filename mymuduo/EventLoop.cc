@@ -146,6 +146,7 @@ void EventLoop::handleRead()
   }
 }
 
+//如何唤醒：
 // 用来唤醒loop所在的线程的  向wakeupfd_写一个数据，wakeupChannel就发生读事件，当前loop线程就会被唤醒
 void EventLoop::wakeup()
 {
@@ -180,7 +181,7 @@ void EventLoop::doPendingFunctors() // 执行回调
 
     {
         std::unique_lock<std::mutex> lock(mutex_);
-        functors.swap(pendingFunctors_);
+        functors.swap(pendingFunctors_); //此处交换的只是指针
     }
 
     for (const Functor &functor : functors)
